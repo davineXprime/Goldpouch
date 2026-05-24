@@ -1,0 +1,83 @@
+﻿/* --- GLOBAL STYLES --- */
+:root {
+    color-scheme: dark;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: #0f172a;
+}
+button,
+input,
+textarea,
+a {
+    font: inherit;
+}
+
+/* --- SCROLL SYSTEM --- */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 4px;
+}
+
+/* --- GOLD METALLIC STYLES --- */
+.gold-chrome-bg {
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+}
+.gold-chrome-text {
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 30%, #B38728 70%, #AA771C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gold-block-outline {
+    border: 3px solid #D4AF37;
+    box-shadow: 0 0 0 1px #9A7B1C, 4px 4px 0px 0px #9A7B1C;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-block-outline-hover:hover {
+    transform: translate(-3px, -3px) scale(1) !important;
+    box-shadow: 0 0 0 1px #9A7B1C, 7px 7px 0px 0px #B38728;
+}
+.gold-chrome-btn {
+    background: linear-gradient(135deg, #BF953F 0%, #FCF6BA 30%, #B38728 75%, #FBF5B7 100%);
+    border: 2px solid #AA771C;
+    box-shadow: 0 4px 10px rgba(186, 140, 39, 0.25), inset 0 1px 1px rgba(255,255,255,0.6);
+    color: #0f172a !important;
+    font-weight: 700;
+    text-shadow: 0 0.5px 0.5px rgba(255, 255, 255, 0.5);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gold-chrome-btn:hover {
+    transform: translateY(-1px) scale(1) !important;
+    background: linear-gradient(135deg, #AA771C 0%, #FBF5B7 30%, #B38728 75%, #FCF6BA 100%);
+    box-shadow: 0 6px 15px rgba(186, 140, 39, 0.45), inset 0 1px 2px rgba(255,255,255,0.8);
+}
+.gold-chrome-btn:active {
+    transform: translateY(1px) scale(1) !important;
+    box-shadow: 0 2px 4px rgba(186, 140, 39, 0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* --- EXTRA TUNEUPS --- */
+.section-heading {
+    color: #f8fafc;
+}
+@media (max-width: 768px) {
+    .gold-block-outline {
+        box-shadow: 0 0 0 1px #9A7B1C, 2px 2px 0px 0px #9A7B28;
+    }
+}
