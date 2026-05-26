@@ -160,7 +160,7 @@
             border: 2px solid #D4AF37;
             border-radius: 1.5rem;
             width: 90%;
-            max-width: 800px;
+            max-width: 1000px; /* Slightly wider to beautifully fit the 3-column layout grid */
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -326,7 +326,7 @@
         const blogAssets = [
             { id: 1, title: "Maximizing High-Ticket Affiliate ROI", date: "Oct 15, 2026", img: "📈", excerpt: "Learn the secrets to closing premium affiliate deals with consistency." },
             { id: 2, title: "The Psychology of Premium Branding", date: "Oct 10, 2026", img: "🧠", excerpt: "Why aesthetics like gold and white convert higher-tier clients." },
-            { id: 3, title: "Structuring Your Sales Funnel", date: "Oct 05, 2026", img: " funnel ", excerpt: "A step-by-step guide to building a funnel that sells for you 24/7." },
+            { id: 3, title: "Structuring Your Sales Funnel", date: "Oct 05, 2026", img: "🌪️", excerpt: "A step-by-step guide to building a funnel that sells for you 24/7." },
             { id: 4, title: "Email Marketing for Luxury Niches", date: "Sep 28, 2026", img: "✉️", excerpt: "Crafting copy that appeals to high-net-worth individuals." },
             { id: 5, title: "Passive Income Myths Debunked", date: "Sep 20, 2026", img: "💡", excerpt: "The reality of building true wealth through digital assets." }
         ];
@@ -335,19 +335,17 @@
            2. RENDER FUNCTIONS (Populating UI)
            ========================================= */
         function createCard(item, type) {
-            // Reusable card component logic for UI
+            // Decoupled clean card HTML component
             const isProduct = type === 'product';
             return `
-                <div class="collage-item">
-                    <div class="premium-card flex flex-col p-6" onclick="openDetails('${type}', ${item.id})">
-                        <div class="h-40 bg-gray-50 rounded-lg flex items-center justify-center text-6xl mb-4 border border-gray-100">
-                            ${item.img}
-                        </div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-900">${item.title}</h3>
-                        ${isProduct 
-                            ? `<p class="text-gold-500 font-semibold text-xl mt-auto">${item.price}</p>` 
-                            : `<p class="text-sm text-gray-400 mb-2">${item.date}</p><p class="text-gray-600 text-sm mt-auto">${item.excerpt}</p>`}
+                <div class="premium-card flex flex-col p-6 h-full" onclick="openDetails('${type}', ${item.id})">
+                    <div class="h-40 bg-gray-50 rounded-lg flex items-center justify-center text-6xl mb-4 border border-gray-100 flex-shrink-0">
+                        ${item.img}
                     </div>
+                    <h3 class="font-bold text-lg mb-2 text-gray-900">${item.title}</h3>
+                    ${isProduct 
+                        ? `<p class="text-gold-500 font-semibold text-xl mt-auto">${item.price}</p>` 
+                        : `<p class="text-sm text-gray-400 mb-2">${item.date}</p><p class="text-gray-600 text-sm mt-auto">${item.excerpt}</p>`}
                 </div>
             `;
         }
@@ -356,10 +354,14 @@
             const container = document.getElementById(containerId);
             if(!container) return;
             
-            // Generate HTML for 3 items
-            const itemsHTML = data.slice(0, 3).map(item => createCard(item, type)).join('');
-            // Duplicate them to create a seamless infinite scrolling effect (Left to Right)
-            // Sequence: [3, 2, 1] [3, 2, 1] for visual continuity
+            // Map over items, specifically wrapping them in the scrolling track element class '.collage-item'
+            const itemsHTML = data.slice(0, 3).map(item => `
+                <div class="collage-item">
+                    ${createCard(item, type)}
+                </div>
+            `).join('');
+            
+            // Duplicate to create infinite loop marquee effect
             container.innerHTML = itemsHTML + itemsHTML;
         }
 
@@ -376,22 +378,25 @@
             let itemType = type === 'products' ? 'product' : 'blog';
 
             html += `<h2 class="text-3xl font-serif font-bold text-gray-900 mb-6 border-b border-gold-500/20 pb-4">${title}</h2>`;
-            html += `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-4">`;
+            
+            // Clean CSS Grid layout with NO animation/carousel overrides squishing the cards
+            html += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">`;
             
             data.forEach(item => {
-                html += createCard(item, itemType);
+                html += `
+                    <div class="w-full">
+                        ${createCard(item, itemType)}
+                    </div>
+                `;
             });
             
             html += `</div>`;
             
             modalBody.innerHTML = html;
             modal.classList.add('active');
-            // Deliberately NOT adding body overflow hidden here to satisfy:
-            // "allow scrolling when popup overlay is open"
         }
 
         function openDetails(type, id) {
-            // Open a specific product or blog post inside the modal
             const dataSet = type === 'product' ? eCommerceAssets : blogAssets;
             const item = dataSet.find(i => i.id === id);
             
@@ -420,10 +425,9 @@
         }
 
         function closeModal(e, force = false) {
-            // Close if clicking the overlay background or the force close button
             if (force || e.target === modal) {
                 modal.classList.remove('active');
-                setTimeout(() => { modalBody.innerHTML = ''; }, 300); // Clear after fade out
+                setTimeout(() => { modalBody.innerHTML = ''; }, 300);
             }
         }
 
@@ -435,15 +439,11 @@
             const appView = document.getElementById('app-view');
             const notFoundView = document.getElementById('404-view');
 
-            // Simple router logic
             if (hash && hash !== '#' && hash !== '#ecommerce' && hash !== '#blog') {
-                // Unknown route -> Show 404
                 appView.classList.add('hidden');
                 notFoundView.classList.remove('hidden');
-                // Ensure modal is closed
                 closeModal(null, true);
             } else {
-                // Valid route -> Show App
                 appView.classList.remove('hidden');
                 notFoundView.classList.add('hidden');
             }
@@ -475,21 +475,19 @@
                 const pathWidth = Math.min(w * 0.8, 800);
                 const startX = (w - pathWidth) / 2;
                 
-                // Define the EKG + Heart Path
                 const points = [
                     {x: 0, y: 0},
                     {x: pathWidth * 0.2, y: 0},
                     {x: pathWidth * 0.25, y: -40},
                     {x: pathWidth * 0.3, y: 50},
                     {x: pathWidth * 0.35, y: -80},
-                    {x: pathWidth * 0.4, y: 0}, // Approach center
+                    {x: pathWidth * 0.4, y: 0},
                     
-                    // Heart Shape approximation in the middle
-                    {x: pathWidth * 0.45, y: -60}, // Left bump
-                    {x: pathWidth * 0.5, y: 20},   // Bottom point of heart
-                    {x: pathWidth * 0.55, y: -60}, // Right bump
+                    {x: pathWidth * 0.45, y: -60},
+                    {x: pathWidth * 0.5, y: 20},
+                    {x: pathWidth * 0.55, y: -60},
                     
-                    {x: pathWidth * 0.6, y: 0}, // Leave center
+                    {x: pathWidth * 0.6, y: 0},
                     {x: pathWidth * 0.65, y: -50},
                     {x: pathWidth * 0.7, y: 40},
                     {x: pathWidth * 0.75, y: -20},
@@ -497,34 +495,24 @@
                     {x: pathWidth, y: 0}
                 ];
 
-                // Global styling for the gold neon effect
                 ctx.strokeStyle = '#D4AF37';
                 ctx.lineWidth = 3;
                 ctx.lineJoin = 'round';
                 ctx.lineCap = 'round';
                 
-                // Add Glow Effect pulsing based on time
-                const pulse = Math.sin(time) * 0.5 + 0.5; // 0 to 1
+                const pulse = Math.sin(time) * 0.5 + 0.5;
                 ctx.shadowBlur = 10 + (15 * pulse);
                 ctx.shadowColor = '#D4AF37';
                 ctx.globalAlpha = 0.4 + (0.3 * pulse);
 
-                // Draw the static path
                 ctx.beginPath();
                 ctx.moveTo(startX + points[0].x, centerY + points[0].y);
                 for(let i = 1; i < points.length; i++) {
-                    // For the heart part, use bezier curves to make it look like a heart
-                    if (i >= 6 && i <= 8) {
-                         ctx.lineTo(startX + points[i].x, centerY + points[i].y);
-                    } else {
-                        ctx.lineTo(startX + points[i].x, centerY + points[i].y);
-                    }
+                    ctx.lineTo(startX + points[i].x, centerY + points[i].y);
                 }
                 ctx.stroke();
 
-                // Draw a moving blip (Electron/Pulse)
                 const totalPoints = points.length;
-                // Move blip through the path array indices
                 const blipProgress = (time * 2) % (totalPoints - 1);
                 const startIndex = Math.floor(blipProgress);
                 const endIndex = startIndex + 1;
@@ -539,7 +527,7 @@
                     
                     ctx.beginPath();
                     ctx.arc(blipX, blipY, 4, 0, Math.PI * 2);
-                    ctx.fillStyle = '#FFF'; // Bright white core
+                    ctx.fillStyle = '#FFF';
                     ctx.shadowBlur = 20;
                     ctx.shadowColor = '#F1D570';
                     ctx.fill();
@@ -559,7 +547,7 @@
             populateMarquee('ecommerce-track', eCommerceAssets, 'product');
             populateMarquee('blog-track', blogAssets, 'blog');
             initCanvasAnimation();
-            handleRouting(); // Check initial route
+            handleRouting();
         };
 
     </script>
