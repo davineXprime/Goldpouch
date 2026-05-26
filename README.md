@@ -1,4 +1,4 @@
-# VitalTech Hub
+# The Gold Pouch
 
 A one-page affiliate marketing and blog website built with Tailwind CSS, Lucide icons, and plain JavaScript.
 
