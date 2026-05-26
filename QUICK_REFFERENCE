@@ -1,0 +1,33 @@
+Quick Reference Guide
+
+Typography
+
+Headings/Logos: Cinzel (Serif, Premium, High-end look)
+
+Body/Paragraphs: Inter (Sans-serif, clean readability)
+
+Color Palette Reference
+
+Primary Gold: #D4AF37
+
+Light Gold: #F1D570
+
+Dark Gold: #B08D28
+
+Premium White/Background: #FAFAFA
+
+Text/Dark Accents: #111111
+
+Grid Color: rgba(255, 0, 0, 0.05) (Transparent Red)
+
+Component Map inside index.html
+
+<style>: Line 25 - Contains all custom animation keyframes, modal states, and background styles.
+
+<canvas id="neon-background">: Line 133 - Handles the EKG line drawing.
+
+<section id="ecommerce">: Line 155 - Handles products track.
+
+<section id="blog">: Line 177 - Handles blogs track.
+
+function initCanvasAnimation(): Line 291 - JS script that drives the glowing dot across the EKG pattern.
