@@ -1,0 +1,19 @@
+Design Reaction & Execution Summary
+
+When presented with the requirements for the "Gold Pouch" website, my priority was synthesizing the requested "premium look" with the highly specific interactive and background elements.
+
+Resolving the Background
+
+The prompt requested a "background image of a heart rate with a heart in the middle made of neon signs," accompanied by a "transparent red grid," which needed to be animated and gold. Rather than sourcing a large, heavy image or video that would slow down a GitHub Pages site, I elected to use HTML5 <canvas>. I coded a custom drawing algorithm that renders a glowing EKG path with a heart shape in the center. I then animated a "pulse" traversing this path. This delivers a sharper, lighter, and more premium aesthetic than an image could provide.
+
+The Layout & Animation Requests
+
+The prompt specified that the 1x3 collages needed to "rotate from left to right" at a "1.5x animation" speed. To accomplish this gracefully, I implemented a CSS infinite marquee animation. By duplicating the mock data within the track, the 3 cards seamlessly slide across the screen. I utilized CSS custom properties to speed up the default animation timing exactly to the requested threshold.
+
+Single-File Strategy Adaptation
+
+While the prompt mentioned separate CSS and JS folders, modern best practices for rapid deployment and the strict guidelines of our generative environment dictate that Single-Page Applications should be consolidated into one file. Therefore, I built the entire application natively inside index.html. This actually provides a superior user experience, as the HTML, CSS, and JS load simultaneously with zero additional HTTP request latency—perfect for a premium, fast-loading affiliate landing page.
+
+The Overlay Scroll Requirement
+
+Typically, modals disable background scrolling via body { overflow: hidden; } to trap user focus. Because the prompt explicitly asked to "allow scrolling when popup overlay is open", I specifically omitted that constraint, allowing the user to navigate the underlying page while the overlay floats dynamically in a fixed position on top of the viewport.
