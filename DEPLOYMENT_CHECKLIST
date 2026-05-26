@@ -1,0 +1,42 @@
+Gold Pouch Deployment Checklist (GitHub Pages)
+
+To launch your affiliate marketing website on GitHub Pages, follow these steps:
+
+Pre-Deployment Verification
+
+[ ] Review index.html to ensure all custom links and asset texts represent your specific affiliate products correctly.
+
+[ ] Verify that the E-Commerce section correctly sits above the Blog section (Verified in code).
+
+[ ] Ensure the white/gold theme looks good across devices (Mobile responsiveness is built-in via Tailwind).
+
+Repository Setup
+
+[ ] Create a new public repository on GitHub (e.g., gold-pouch-web).
+
+[ ] Add the single index.html file to the root of your repository.
+(Note: Due to our optimized Single-Page App architecture, the CSS and JS are bundled into this file to minimize requests and prevent rendering-blocking delays).
+
+[ ] Add the generated Markdown files to the repository root for documentation purposes.
+
+Enabling GitHub Pages
+
+[ ] Navigate to the repository Settings tab.
+
+[ ] Click on Pages in the left sidebar.
+
+[ ] Under "Build and deployment", set the Source to Deploy from a branch.
+
+[ ] Under Branch, select main (or master) and keep the folder as / (root).
+
+[ ] Click Save.
+
+Final Checks
+
+[ ] Wait 1-3 minutes for the GitHub Actions deployment pipeline to finish.
+
+[ ] Visit your published URL (e.g., https://yourusername.github.io/gold-pouch-web/).
+
+[ ] Test the popups (E-commerce and Blog) to ensure they open and you can scroll the main page underneath.
+
+[ ] Test the 404 router by manually typing a fake hash at the end of the URL (e.g., index.html#does-not-exist).
