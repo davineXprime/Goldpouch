@@ -32,7 +32,6 @@
     </script>
 
     <style>
-        /* CSS FOLDER EQUIVALENT */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
         body {
@@ -40,17 +39,20 @@
             color: #111111;
             font-family: 'Inter', sans-serif;
             margin: 0;
-            overflow-x: hidden; /* Prevent horizontal scroll from marquees */
+            overflow-x: hidden; /* Prevents horizontal layout overflow */
         }
 
         h1, h2, h3, .font-serif {
             font-family: 'Cinzel', serif;
         }
 
-        /* Background: Transparent Red Grid */
+        /* Background grid styling (Red with custom opacity) */
         .bg-grid {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background-image: 
                 linear-gradient(rgba(255, 0, 0, 0.05) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 0, 0, 0.05) 1px, transparent 1px);
@@ -59,85 +61,91 @@
             pointer-events: none;
         }
 
-        /* Neon Gold Heart Rate Background Canvas Container */
+        /* Canvas overlay for neon golden pulse animation */
         #neon-background {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
             z-index: -1;
             pointer-events: none;
             opacity: 0.6;
         }
 
-        /* Premium Gold Button Theme */
+        /* Premium Gold Button Styling (White and Gold Theme) */
         .btn-gold {
             background: linear-gradient(135deg, #F1D570 0%, #D4AF37 50%, #B08D28 100%);
             color: white;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-radius: 9999px; /* Rounded corners */
+            border-radius: 9999px;
             box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
-        
+
         .btn-gold:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
             background: linear-gradient(135deg, #F7E090 0%, #D4AF37 50%, #B08D28 100%);
         }
 
-        /* Marquee Animation (Left to Right) */
-        /* Note: To move left-to-right infinitely without breaking, we start at -50% and move to 0 */
+        /* Infinite Marquee sliding animation config (Left to Right) */
         @keyframes slideLeftToRight {
             0% { transform: translateX(-50%); }
             100% { transform: translateX(0%); }
         }
 
-        /* 1.5x Animation Speed via CSS custom property approach */
         .marquee-track {
             display: flex;
-            width: 200%; /* Double width to accommodate duplication */
+            width: 200%;
             animation: slideLeftToRight 20s linear infinite;
         }
-        
+
+        /* Accelerated Animation Speed Option (1.5x speed) */
         .marquee-track.fast {
-            /* 1.5x speed means dividing the duration by 1.5 (20 / 1.5 = ~13.3s) */
-            animation-duration: 13.33s; 
+            animation-duration: 13.33s;
         }
 
         .marquee-track:hover {
             animation-play-state: paused;
         }
 
+        /* 1x3 Collage list card wrappers inside marquee */
         .collage-item {
-            width: calc(100% / 6); /* 3 items duplicated = 6 items total in track */
+            width: calc(100% / 6);
             padding: 1rem;
             flex-shrink: 0;
         }
 
+        /* Standard Premium Card configuration */
         .premium-card {
             background: white;
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             height: 100%;
             cursor: pointer;
         }
-        
+
         .premium-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
             border-color: #D4AF37;
         }
 
-        /* Modal Overlay */
+        /* Modal Popup Overlays and responsive states */
         .modal-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(8px);
             z-index: 50;
@@ -147,7 +155,6 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
-            /* Explicitly NOT blocking body scroll as requested */
         }
 
         .modal-overlay.active {
@@ -160,7 +167,7 @@
             border: 2px solid #D4AF37;
             border-radius: 1.5rem;
             width: 90%;
-            max-width: 1000px; /* Slightly wider to beautifully fit the 3-column layout grid */
+            max-width: 1000px;
             max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -172,7 +179,7 @@
             transform: scale(1);
         }
 
-        /* Glass Header */
+        /* Header Glassmorphism styling */
         header {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
@@ -310,17 +317,51 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT FOLDER EQUIVALENT -->
     <script>
-        /* =========================================
-           1. DATA ASSETS (E-Commerce & Blog)
-           ========================================= */
+        /* ==========================================================================
+           1. CORE DATA ASSETS (E-Commerce & Blog Models with Amazon Affiliate Links)
+           ========================================================================== */
         const eCommerceAssets = [
-            { id: 1, title: "Executive Gold Timepiece", price: "$4,999", img: "⌚", desc: "Crafted with 18k gold and precision engineering." },
-            { id: 2, title: "Premium Leather Portfolio", price: "$450", img: "💼", desc: "Hand-stitched Italian leather for the modern professional." },
-            { id: 3, title: "Success Mindset Audio Course", price: "$199", img: "🎧", desc: "Exclusive affiliate strategies and wealth mindsets." },
-            { id: 4, title: "Gold Pouch Cufflinks", price: "$299", img: "👔", desc: "Signature brand cufflinks to complete your executive look." },
-            { id: 5, title: "Elite Network Access pass", price: "$999", img: "🎟️", desc: "Yearly access to our private mastermind group." }
+            { 
+                id: 1, 
+                title: "Executive Gold Timepiece", 
+                price: "$4,999", 
+                img: "⌚", 
+                desc: "Crafted with 18k gold and precision Swiss movement. An ultimate hallmark of corporate refinement.",
+                affiliateUrl: "https://www.amazon.com/s?k=gold+watch&tag=goldpouch20-20" 
+            },
+            { 
+                id: 2, 
+                title: "Premium Leather Portfolio", 
+                price: "$450", 
+                img: "💼", 
+                desc: "Hand-stitched Italian leather engineered to keep your blueprints and digital tablets completely secured in style.",
+                affiliateUrl: "https://www.amazon.com/s?k=leather+portfolio&tag=goldpouch20-20" 
+            },
+            { 
+                id: 3, 
+                title: "Success Mindset Audio Course", 
+                price: "$199", 
+                img: "🎧", 
+                desc: "Exclusive audio masterclass covering high-ticket affiliate secrets and dynamic asset structuring.",
+                affiliateUrl: "https://www.amazon.com/s?k=audio+course+mindset&tag=goldpouch20-20" 
+            },
+            { 
+                id: 4, 
+                title: "Gold Pouch Cufflinks", 
+                price: "$299", 
+                img: "👔", 
+                desc: "Signature brand gold cufflinks curated explicitly to turn heads during boardroom discussions.",
+                affiliateUrl: "https://www.amazon.com/s?k=gold+cufflinks&tag=goldpouch20-20" 
+            },
+            { 
+                id: 5, 
+                title: "Elite Network Access pass", 
+                price: "$999", 
+                img: "🎟️", 
+                desc: "Your golden ticket to networking circles that feature multi-million dollar asset creators.",
+                affiliateUrl: "https://www.amazon.com/s?k=premium+mastermind+access&tag=goldpouch20-20" 
+            }
         ];
 
         const blogAssets = [
@@ -331,11 +372,10 @@
             { id: 5, title: "Passive Income Myths Debunked", date: "Sep 20, 2026", img: "💡", excerpt: "The reality of building true wealth through digital assets." }
         ];
 
-        /* =========================================
-           2. RENDER FUNCTIONS (Populating UI)
-           ========================================= */
+        /* ==========================================================================
+           2. RENDER FUNCTIONS
+           ========================================================================== */
         function createCard(item, type) {
-            // Decoupled clean card HTML component
             const isProduct = type === 'product';
             return `
                 <div class="premium-card flex flex-col p-6 h-full" onclick="openDetails('${type}', ${item.id})">
@@ -352,22 +392,21 @@
 
         function populateMarquee(containerId, data, type) {
             const container = document.getElementById(containerId);
-            if(!container) return;
+            if (!container) return;
             
-            // Map over items, specifically wrapping them in the scrolling track element class '.collage-item'
             const itemsHTML = data.slice(0, 3).map(item => `
                 <div class="collage-item">
                     ${createCard(item, type)}
                 </div>
             `).join('');
             
-            // Duplicate to create infinite loop marquee effect
+            // Duplicate elements to create continuous left-to-right infinite scrolling marquee loops
             container.innerHTML = itemsHTML + itemsHTML;
         }
 
-        /* =========================================
-           3. MODAL LOGIC (Overlay with Scrolling)
-           ========================================= */
+        /* ==========================================================================
+           3. MODAL OVERLAY INTERACTIVITY (Supports non-blocking scroll)
+           ========================================================================== */
         const modal = document.getElementById('main-modal');
         const modalBody = document.getElementById('modal-body');
 
@@ -378,8 +417,6 @@
             let itemType = type === 'products' ? 'product' : 'blog';
 
             html += `<h2 class="text-3xl font-serif font-bold text-gray-900 mb-6 border-b border-gold-500/20 pb-4">${title}</h2>`;
-            
-            // Clean CSS Grid layout with NO animation/carousel overrides squishing the cards
             html += `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-4">`;
             
             data.forEach(item => {
@@ -400,7 +437,16 @@
             const dataSet = type === 'product' ? eCommerceAssets : blogAssets;
             const item = dataSet.find(i => i.id === id);
             
-            if(!item) return;
+            if (!item) return;
+
+            let actionButton = '';
+            if (type === 'product') {
+                actionButton = `
+                    <a href="${item.affiliateUrl}" target="_blank" rel="noopener noreferrer" class="btn-gold px-10 py-3.5 inline-block text-center text-sm tracking-widest">
+                        Buy on Amazon
+                    </a>
+                `;
+            }
 
             modalBody.innerHTML = `
                 <div class="text-center pt-4">
@@ -414,11 +460,13 @@
                     }
                     <p class="text-gray-600 text-lg max-w-lg mx-auto mb-8 leading-relaxed">
                         ${item.desc || item.excerpt} 
-                        This is premium placeholder content demonstrating the deep dive view for the Gold Pouch platform.
                     </p>
-                    <button class="btn-gold px-8 py-3" onclick="openModal('${type === 'product' ? 'products' : 'blogs'}')">
-                        Back to List
-                    </button>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                        ${actionButton}
+                        <button class="bg-gray-100 text-gray-800 hover:bg-gold-500 hover:text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-sm uppercase tracking-wider" onclick="openModal('${type === 'product' ? 'products' : 'blogs'}')">
+                            Back to List
+                        </button>
+                    </div>
                 </div>
             `;
             modal.classList.add('active');
@@ -431,9 +479,9 @@
             }
         }
 
-        /* =========================================
-           4. ROUTING LOGIC (404 Page Handle)
-           ========================================= */
+        /* ==========================================================================
+           4. ROUTING MODULES (Interactive 404 Rendering)
+           ========================================================================== */
         function handleRouting() {
             const hash = window.location.hash;
             const appView = document.getElementById('app-view');
@@ -451,9 +499,9 @@
 
         window.addEventListener('hashchange', handleRouting);
 
-        /* =========================================
-           5. CANVAS ANIMATION (Neon Gold Heart Rate)
-           ========================================= */
+        /* ==========================================================================
+           5. CANVAS ANIMATION MODULE (Neon Gold Heart Rate Pulse)
+           ========================================================================== */
         function initCanvasAnimation() {
             const canvas = document.getElementById('neon-background');
             const ctx = canvas.getContext('2d');
@@ -540,16 +588,15 @@
             drawHeartRate();
         }
 
-        /* =========================================
-           6. INITIALIZATION
-           ========================================= */
+        /* ==========================================================================
+           6. INITIALIZATION EXECUTION
+           ========================================================================== */
         window.onload = () => {
             populateMarquee('ecommerce-track', eCommerceAssets, 'product');
             populateMarquee('blog-track', blogAssets, 'blog');
             initCanvasAnimation();
             handleRouting();
         };
-
     </script>
 </body>
 </html>
