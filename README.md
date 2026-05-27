@@ -10,8 +10,5 @@ Key Features
 
 Interactive Canvas Background: A custom-rendered, animated neon heartbeat line (<canvas>).
 
-Touch-Friendly Sliders: Horizontal scrolling product and blog displays equipped with intuitive left/right navigation arrows.
-
-Non-Blocking Modals: Deep-dive product views that allow the underlying page to remain scrollable when active.
 
 Dynamic Affiliate Routing: Integrated "Buy on Amazon" call-to-actions tied directly to your custom referral tags.
