@@ -1,0 +1,24 @@
+Remedy Tech Zone — Quick Reference SheetA developer cheat-sheet for CSS layout, design variables, and mathematical synthesis equations implemented across the platform.🎨 Theme Colors & Tailwind MappingThese tokens are mirrored across both the tailwind configurations and external_style_sheet.css variables:Design TokenValueHex CodeVisual ApplicationBackdrop BaseStone 950#0C0A09Dark velvet foundation of sectionsWarm OverlayGold 950#110D03Core gradient tone for bio-aesthetic backgroundMolten AccentGold 500#D4AF37Primary golden highlight, active buttonsInteractive GlowGold 400#E1B03CHover borders, button text, and alertsPremium WhiteStone 100#F5F5F4Headers, titles, and high-visibility text⚡ Kinetic CSS AnimationsTo trigger custom animations manually, apply these classes directly to your elements:/* Glassmorphism panel base */
+.glass-panel {
+    background: rgba(17, 13, 3, 0.75);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+/* Kinetic feedback animation trigger class */
+.animate-click-pop-slide {
+    animation: popOutSlideRight 0.38s cubic-bezier(0.25, 1, 0.5, 1) 1 !important;
+}
+
+/* Modal introduction zoom */
+.animate-zoom-in {
+    animation: zoomInEffect 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+🧬 Acoustic Signal SpecificationsThe custom spa soundscape is built on raw mathematical audio waveforms:$$f_{\text{carrier}} = 111\text{ Hz}$$$$G_{\text{output}} = 0.04 \quad (4\% \text{ gain threshold})$$// Web Audio API Pipeline Structure
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const oscillatorNode = audioCtx.createOscillator();
+const gainNode = audioCtx.createGain();
+
+oscillatorNode.type = 'sine';
+oscillatorNode.frequency.setValueAtTime(111, audioCtx.currentTime);
+gainNode.gain.setValueAtTime(0.04, audioCtx.currentTime);
