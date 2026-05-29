@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Remedy Tech Zone | Premium Electronic Healthcare & Biohacking</title>
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for luxury typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind Configuration for custom gold themes -->
     <script>tailwind.config = {
             theme: {
                 extend: {
@@ -92,11 +89,9 @@
 </head>
 <body class="bg-stone-950 text-stone-200 font-sans min-h-screen relative overflow-x-hidden selection:bg-gold-500 selection:text-gold-950">
 
-    <!-- Molten Gold Shimmering Fluid Background Canvas -->
     <canvas id="liquid-gold-canvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-70 pointer-events-none"></canvas>
     <div class="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-to-b from-gold-950 via-stone-950 to-gold-950 opacity-90 pointer-events-none"></div>
 
-    <!-- NAVIGATION BAR -->
     <nav class="sticky top-0 z-50 glass-panel border-b border-gold-500/10 py-3 px-4 lg:px-8">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
@@ -133,7 +128,6 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
     <header class="relative pt-16 pb-24 px-4 overflow-hidden" id="about">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div class="lg:col-span-7 flex flex-col space-y-6 text-left relative z-10">
@@ -148,7 +142,7 @@
                     Welcome to <span class="text-gold-400 font-medium">Remedy Tech Zone</span>. We curate next-generation health diagnostics, precision aromatherapy tools, and advanced physical optimization devices. Maximize cellular energy, refine daily routines, and master longevity with elite high-ticket solutions.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#categories" class="px-8 py-3.5 rounded-lg bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-stone-950 font-bold tracking-wide hover:from-gold-500 hover:to-gold-300 transition-all shadow-lg shadow-gold-500/20 text-center w-full sm:w-auto">
+                    <a href="#categories" class="px-8 py-3.5 rounded-lg bg-gradient-to-r from-gold-600 via-gold-500 to-gold-400 text-gold-950 font-bold tracking-wide hover:from-gold-500 hover:to-gold-300 transition-all shadow-lg shadow-gold-500/20 text-center w-full sm:w-auto">
                         Browse 15 Technology Categories
                     </a>
                 </div>
@@ -169,7 +163,6 @@
         </div>
     </header>
 
-    <!-- MAIN CATEGORIES INTERACTIVE SHOWCASE -->
     <main class="max-w-7xl mx-auto px-4 py-16" id="categories">
         <div class="text-center space-y-4 mb-12">
             <h2 class="font-serif text-3xl sm:text-4xl font-black text-stone-100">Electronic Curation Suite</h2>
@@ -184,9 +177,7 @@
             </div>
         </div>
 
-        <!-- THE 15 CATEGORY GRID -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="product-grid">
-            <!-- Cards 1-15 generated natively. Function triggers correctly mapped -->
             <div class="category-card glass-panel glass-panel-hover rounded-xl p-6 flex flex-col justify-between transition-all duration-300" data-group="digital">
                 <div>
                     <div class="flex items-center justify-between mb-4"><span class="text-[10px] font-bold tracking-widest text-emerald-400 uppercase">E-Commerce</span></div>
@@ -243,10 +234,7 @@
 
             <div class="category-card glass-panel glass-panel-hover rounded-xl p-6 flex flex-col justify-between transition-all duration-300" data-group="digital">
                 <div>
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="w-12 h-12 rounded-lg bg-purple-950/20 flex items-center justify-center text-violet-400">📊</div>
-                        <span class="text-[10px] font-bold tracking-widest text-violet-400 uppercase">Diagnostics</span>
-                    </div>
+                    <div class="flex items-center justify-between mb-4"><span class="text-[10px] font-bold tracking-widest text-violet-400 uppercase">Diagnostics</span></div>
                     <h3 class="font-serif text-xl font-bold text-stone-100 mb-2">Electronic Health Monitoring</h3>
                     <p class="text-sm text-stone-400 mb-6 leading-relaxed">Wearable hardware diagnostics, multi-frequency scales, and raw biomarkers telemetry infrastructure.</p>
                 </div>
@@ -327,7 +315,6 @@
         </div>
     </main>
 
-    <!-- LONGEVITY JOURNAL -->
     <section class="border-t border-gold-500/10 py-20 px-4 bg-stone-950/40" id="blog">
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
@@ -348,7 +335,6 @@
         </div>
     </section>
 
-    <!-- INTERACTIVE LEAD MAGNET FUNNEL -->
     <section class="border-t border-gold-500/10 py-20 px-4 relative" id="lead-magnet">
         <div class="max-w-4xl mx-auto glass-panel rounded-2xl p-8 md:p-12 text-center space-y-6">
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-100">Claim the 2026 Biohacking Blueprint</h2>
@@ -360,7 +346,12 @@
         </div>
     </section>
 
-    <!-- DYNAMIC POPUP MODAL ARCHITECTURE -->
+    <footer class="border-t border-gold-500/10 bg-gold-950/20 py-12 px-4 text-stone-400 text-sm">
+        <div class="max-w-7xl mx-auto border-t border-stone-800/60 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+            <span>© 2026 Remedy Tech Zone. All engineering blueprints reserved.</span>
+        </div>
+    </footer>
+
     <div id="category-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-950/80 backdrop-blur-md hidden" role="dialog" aria-modal="true">
         <div class="relative w-full max-w-2xl glass-panel rounded-2xl p-6 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
             <button onclick="closeCategoryModal()" class="absolute top-4 right-4 text-stone-400 hover:text-gold-400 text-xl font-bold">✕</button>
@@ -384,25 +375,8 @@
         </div>
     </div>
 
-    <!-- IN-WINDOW EMBEDDED MODAL REDIRECT OVERLAY -->
-    <div id="embedded-redirect-overlay" class="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-stone-950/90 backdrop-blur-lg hidden" role="dialog" aria-modal="true">
-        <div class="relative w-full max-w-5xl h-[85vh] glass-panel rounded-2xl flex flex-col overflow-hidden">
-            <div class="flex items-center justify-between p-4 bg-stone-900 border-b border-gold-500/10 shrink-0">
-                <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-xs font-mono text-stone-400 tracking-widest uppercase">SECURE INTEGRATED STORE OVERLAY</span>
-                </div>
-                <button onclick="closeEmbeddedRedirectOverlay()" class="text-stone-400 hover:text-gold-400 text-sm font-bold px-3 py-1 bg-stone-950 border border-stone-800 rounded-lg">Return to Zone ✕</button>
-            </div>
-            <div class="w-full flex-grow bg-white">
-                <iframe id="embedded-store-frame" class="w-full h-full border-none" src="about:blank" sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN CORE ENGINE SCRIPT -->
     <script>
-        /* FIXED COMPREHENSIVE DATA MATRIX */
+        /* BALANCED HIGH-TICKET SPEC DATA MATRIX */
         const categoriesData = {
             1: { title: "E-books for Health", tag: "E-Commerce & Digital", icon: "📚", desc: "Curated digital guides, manuals, and structural blueprints focusing on longevity and high-ticket field conversions.", products: [{ name: "The Biohacking & Longevity Blueprint (e-book)", price: "$49.99", score: "4.9/5", perk: "Complete biochemical calibration roadmap.", url: "https://www.amazon.com/dp/B000000001?tag=tay1225060-20" }] },
             2: { 
@@ -422,7 +396,7 @@
             4: { title: "Electronic Eye Care", tag: "Vision Comfort", icon: "👁️", desc: "Ultrasonic cleaning arrays and thermal compression ocular devices mapped to manage digital fatigue profiles.", products: [{ name: "OcuRelief Heated compression Eye System", price: "$130.00", score: "4.8/5", perk: "42°C constant target thermal heating curves.", url: "https://www.amazon.com/dp/B000000003?tag=tay1225060-20" }] },
             5: { title: "Electronic Foot Care", tag: "Mobility Wellness", icon: "🦶", desc: "Hydrotherapy soaking systems and rotational mechanical structures for optimized plantar surface recovery.", products: [{ name: "SoleTherapy Heated Compression Spa System", price: "$240.00", score: "5.0/5", perk: "Infrared heat elements paired with kinetic deep rollers.", url: "https://www.amazon.com/dp/B000000004?tag=tay1225060-20" }] },
             6: { title: "Electronic Hair & Scalp Care", tag: "Aesthetics Tech", icon: "💇", desc: "Low-Level Laser Therapy arrays and water-resistant mechanical scalp oscillators for follicle cell expansion.", products: [{ name: "Helios LLLT Laser Restoration Helmet", price: "$699.00", score: "4.9/5", perk: "272 medical-grade focus diodes.", url: "https://www.amazon.com/dp/B000000005?tag=tay1225060-20" }] },
-            7: { title: "Electronic Health Monitoring", tag: "Diagnostics & Telemetry", icon: "📊", desc: "Wearable diagnostic systems and multi-frequency tracking hubs delivering real-time biometric tracking streams.", products: [{ name: "VitalsPro Smart Scale & Body Comp Analyzer", price: "$150.00", score: "4.8/5", perk: "17 physical tracking metrics over 8-sensor grid.", url: "https://www.amazon.com/dp/B000000006?tag=tay1225060-20" }] },
+            7: { title: "Electronic Health Monitoring", tag: "Diagnostics & Telemetry", icon: "📊", desc: "Wearable hardware diagnostics, multi-frequency scales, and raw biomarkers telemetry infrastructure.", products: [{ name: "VitalsPro Smart Scale & Body Comp Analyzer", price: "$150.00", score: "4.8/5", perk: "17 physical tracking metrics over 8-sensor grid.", url: "https://www.amazon.com/dp/B000000006?tag=tay1225060-20" }] },
             8: { title: "Electronic Hygiene Care", tag: "Sanitation Curation", icon: "🛡️", desc: "High-definition fiber optic ear endoscopes and medical-grade heavy-duty containment sanitization vessels.", products: [{ name: "PureEar HD Video Ear Wax Removal System", price: "$75.00", score: "4.7/5", perk: "1080p sub-surface micro illumination lens.", url: "https://www.amazon.com/dp/B000000007?tag=tay1225060-20" }] },
             9: { title: "Electronic Lower Body Care", tag: "Lower Body Recovery", icon: "🦵", desc: "Multi-chamber pneumatic sequential compression boots and infrared thermal element structural sleeves.", products: [{ name: "AeroCompression Full-Leg Recovery Boots", price: "$550.00", score: "4.9/5", perk: "5-zone automated compression gradient loops.", url: "https://www.amazon.com/dp/B000000008?tag=tay1225060-20" }] },
             10: { title: "Electronic Muscle Recovery", tag: "Muscle Performance", icon: "⚡", desc: "AI-assisted brushless percussion modules and localized electrotherapy neural alignment patches.", products: [{ name: "HyperPulse Smart Percussion Massage Gun", price: "$350.00", score: "4.9/5", perk: "Brushless 16mm deep amplitude torque engine.", url: "https://www.amazon.com/dp/B000000009?tag=tay1225060-20" }] },
@@ -433,7 +407,7 @@
             15: { title: "Sexual Awareness", tag: "Intimate Biosensors", icon: "❤️", desc: "App-interfaced biometric tracking intimate loops and structural micro-movement pelvic conditioning cores.", products: [{ name: "SyncIntimacy App-Controlled Pro Stimulator", price: "$180.00", score: "4.9/5", perk: "Automated biofeedback synchronization loop presets.", url: "https://www.amazon.com/dp/B000000014?tag=tay1225060-20" }] }
         };
 
-        /* FIX: COMPREHENSIVE MODAL OPEN RUNTIME ROUTINE */
+        /* CATEGORY SPECIFICATION MODAL POPULATION RUNTIME */
         function openCategoryModal(categoryId) {
             const data = categoriesData[categoryId];
             if (!data) return;
@@ -449,15 +423,15 @@
             data.products.forEach(p => {
                 const isPremiumAroma = categoryId === 2;
                 
-                // FIXED: Universally binds click script target and prevents browser defaults
+                // CRITICAL FIXED CHANGE: Renders target directly via secure external tabs to resolve frame blocking
                 const buttonMarkup = `
-                    <button onclick="launchEmbeddedStoreOverlay('${p.url}')" class="mt-3 px-4 py-2 w-full md:w-auto text-center rounded-lg bg-gradient-to-r from-gold-600 to-gold-400 text-gold-950 text-xs font-bold tracking-wider uppercase hover:from-gold-500 hover:to-gold-300 transition-all shadow-md">
+                    <a href="${p.url}" target="_blank" onclick="closeCategoryModal()" class="mt-3 px-4 py-2 w-full md:w-auto text-center rounded-lg bg-gradient-to-r from-gold-600 to-gold-400 text-gold-950 text-xs font-bold tracking-wider uppercase hover:from-gold-500 hover:to-gold-300 transition-all shadow-md block">
                         Details
-                    </button>
+                    </a>
                 `;
 
                 listContainer.innerHTML += `
-                    <div class="p-4 rounded-xl bg-stone-900/80 border ${isPremiumAroma ? 'border-gold-500/30' : 'border-stone-800'} flex flex-col justify-between gap-4 hover:border-gold-500/40 transition-all">
+                    <div class="p-4 rounded-xl bg-stone-900/80 border ${isPremiumAroma ? 'border-gold-500/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]' : 'border-stone-800'} flex flex-col justify-between gap-4 hover:border-gold-500/40 transition-all">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                             <div class="text-left space-y-1 max-w-md">
                                 <h5 class="text-sm font-bold ${isPremiumAroma ? 'text-gold-400 font-serif text-base' : 'text-stone-100'}">${p.name}</h5>
@@ -465,7 +439,7 @@
                             </div>
                             <div class="text-left md:text-right flex md:flex-col items-center md:items-end justify-between shrink-0 border-t md:border-t-0 border-stone-800 pt-2 md:pt-0">
                                 <span class="text-xs md:text-sm font-bold text-gold-300 uppercase tracking-wider">${p.price}</span>
-                                <span class="text-[10px] text-stone-400 font-medium">${p.score}</span>
+                                <span class="text-[10px] text-stone-400 font-medium">Rating: ${p.score}</span>
                             </div>
                         </div>
                         <div class="flex justify-end border-t border-stone-800/40 pt-1">
@@ -482,28 +456,7 @@
             document.getElementById('category-modal').classList.add('hidden');
         }
 
-        /* FIX: MODAL INLINE OVERLAY HANDLER */
-        function launchEmbeddedStoreOverlay(targetUrl) {
-            closeCategoryModal(); // Unloads details pane cleanly
-            
-            const overlay = document.getElementById('embedded-redirect-overlay');
-            const frame = document.getElementById('embedded-store-frame');
-            
-            if (targetUrl && targetUrl !== '#') {
-                frame.src = targetUrl;
-            } else {
-                frame.src = "about:blank";
-            }
-            
-            overlay.classList.remove('hidden');
-        }
-
-        function closeEmbeddedRedirectOverlay() {
-            document.getElementById('embedded-redirect-overlay').classList.add('hidden');
-            document.getElementById('embedded-store-frame').src = "about:blank"; // Tears down document context safely
-        }
-
-        /* AMBIENT GENERATOR & SYSTEM HANDLERS */
+        /* SOUND COUPLING ENGINE */
         let audioCtx = null, oscillatorNode = null, gainNode = null, isSoundPlaying = false;
         function toggleAmbientSound() {
             if (!isSoundPlaying) {
@@ -530,6 +483,7 @@
             }
         }
 
+        /* SELECTION SUITE CONTROLS */
         function filterCategories(group) {
             const cards = document.querySelectorAll('.category-card');
             const buttons = document.querySelectorAll('#filter-container button');
@@ -547,7 +501,7 @@
             setTimeout(() => { document.getElementById('form-success-msg').classList.add('hidden'); event.target.reset(); }, 4000);
         }
 
-        /* CANVAS BACKEND GRAPHICS ENGINE */
+        /* BACKGROUND ENGINE GRAPHICS */
         window.onload = function() {
             const canvas = document.getElementById('liquid-gold-canvas');
             const ctx = canvas.getContext('2d');
@@ -577,7 +531,6 @@
             }
             animate();
 
-            // POP OUT SPRING EFFECTS FOR USER INTERACTIONS
             const interactiveSelectors = 'button, a, input[type="submit"], .category-card';
             document.body.addEventListener('click', (e) => {
                 const target = e.target.closest(interactiveSelectors);
