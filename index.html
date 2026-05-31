@@ -32,22 +32,11 @@
                             900: '#2B1B04',
                             950: '#110D03',
                         }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'shimmer': 'shimmer 2.5s infinite linear',
-                    },
-                    keyframes: {
-                        shimmer: {
-                            '0%': { backgroundPosition: '-200% 0' },
-                            '100%': { backgroundPosition: '200% 0' }
-                        }
                     }
                 }
             }
         }</script>
     <style>
-        /* Glassmorphism custom classes */
         .glass-panel {
             background: rgba(17, 13, 3, 0.75);
             backdrop-filter: blur(12px);
@@ -60,7 +49,7 @@
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
             transform: translateY(-4px);
         }
-        /* Custom scrollbar matching liquid gold */
+
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -78,15 +67,19 @@
             background: #D4AF37;
         }
 
-        /* Pop Out & Slide Right Click Animation */
-        @keyframes popOutSlideRight {
-            0% { transform: scale(1) translateX(0); box-shadow: 0 0 0 rgba(212, 175, 55, 0); }
-            30% { transform: scale(1.04) translateX(2px); box-shadow: -4px 4px 15px rgba(212, 175, 55, 0.15); }
-            100% { transform: scale(1) translateX(0); box-shadow: 0 0 0 rgba(212, 175, 55, 0); }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .animate-click-pop-slide {
-            animation: popOutSlideRight 0.3s cubic-bezier(0.25, 1, 0.5, 1) 1 !important;
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease forwards;
         }
     </style>
 </head>
@@ -95,9 +88,10 @@
     <canvas id="liquid-gold-canvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-70 pointer-events-none"></canvas>
     <div class="fixed top-0 left-0 w-full h-full -z-20 bg-gradient-to-b from-gold-950 via-stone-950 to-gold-950 opacity-90 pointer-events-none"></div>
 
+    <!-- Navigation -->
     <nav class="sticky top-0 z-50 glass-panel border-b border-gold-500/10 py-3 px-4 lg:px-8">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <a href="#" class="flex items-center gap-3 group">
+            <a href="#home" class="flex items-center gap-3 group">
                 <div class="relative w-10 h-10 rounded-lg bg-gradient-to-tr from-gold-700 to-gold-400 p-[1.5px] shadow-lg shadow-gold-500/20">
                     <div class="w-full h-full bg-stone-950 rounded-md flex items-center justify-center">
                         <span class="font-serif font-black text-xl text-gold-400 group-hover:text-gold-200 transition-colors">R</span>
@@ -109,15 +103,25 @@
                 </div>
             </a>
 
-            <div class="hidden md:flex items-center gap-6">
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">Home</a>
                 <a href="#about" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">About</a>
-                <a href="#categories" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">Categories</a>
-                <a href="#blog" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">Longevity Journal</a>
-                <a href="#lead-magnet" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">Newsletter</a>
+                <a href="#shop" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">Shop</a>
+                <a href="#contact" class="text-sm font-medium text-stone-300 hover:text-gold-400 transition-colors">Contact</a>
             </div>
+        </div>
+    </nav>
 
-            <div class="flex items-center gap-4">
-                <button id="soundscape-btn" onclick="toggleAmbientSound()" class="flex items-center gap-2 px-3 py-1.5 rounded-full border border-gold-500/30 bg-gold-950/30 hover:bg-gold-900/50 hover:border-gold-400 text-[11px] text-gold-400 font-semibold tracking-wider transition-all">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75" id="audio-pulse"></span>
-                        <span class="relative inline-flex rounded
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="home" class="min-h-screen flex items-center justify-center px-4 py-20">
+        <div class="text-center max-w-4xl mx-auto">
+            <h1 class="font-serif text-6xl md:text-7xl font-bold text-gold-400 mb-6 fade-in-up">Premium Wellness Technology</h1>
+            <p class="text-xl md:text-2xl text-stone-300 mb-8 fade-in-up" style="animation-delay: 0.2s">Advanced electronic healthcare & biohacking devices for optimal health & longevity</p>
+            <div class="glass-panel p-8 rounded-2xl mb-8 border-2 border-gold-500/20 fade-in-up" style="animation-delay: 0.4s">
+                <p class="text-lg text-stone-200 mb-6">Discover our curated collection of FDA-cleared devices. Click any product to shop from our trusted partners.</p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <a href="#shop" class="px-8 py-3 bg-gradient-to-r from-gold-600 to-gold-400 text-stone-950 font-semibold rounded-lg hover:from-gold-500 hover:to-gold-300 transition-all">Browse Products</a>
+                    <a href="#about" class="px-8 py-3 border-2 border-gold-500 text-gold-400 font-semibold rounded-lg hover:bg-gold-900/30 transition-all">Learn More</a>
+                </div>
+            </div>
+            <div class="flex flex-wrap 
